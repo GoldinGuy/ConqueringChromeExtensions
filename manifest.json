@@ -1,15 +1,18 @@
 {
 	"name": "Refreshapalaooza",
 	"version": "1.1",
-	"manifest_version": 3,
+	"manifest_version": 2,
+	"description": "Automatically refresh webpages at certain intervals. A lab for \"Conquering Chrome Extensions\" @ Hackapalooza",
+	"permissions": ["storage", "tabs"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
 	"icons": {
 		"128": "icon.png"
-	},
-	"description": "Automatically refresh webpages at certain intervals. A lab for \"Conquering Chrome Extensions\" @ Hackapalooza",
-	"background": {
-		"service_worker": "background.js"
-	},
-	"permissions": ["storage", "tabs", "alarms"],
-	"host_permissions": ["*://*/*"],
-	"action": { "default_icon": "icon.png", "default_popup": "popup.html" }
+	}
 }
