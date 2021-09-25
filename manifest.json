@@ -1,0 +1,18 @@
+{
+	"name": "Refreshapalaooza",
+	"version": "1.1",
+	"manifest_version": 2,
+	"icons": {
+		"128": "icon.png"
+	},
+	"description": "Automatically refresh webpages at certain intervals. A lab for \"Conquering Chrome Extensions\" @ Hackapalooza",
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"permissions": ["storage", "tabs"],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	}
+}

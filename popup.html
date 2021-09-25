@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Refreshapalooza</title>
+      <link rel="stylesheet" href="popup.css">
+    </head>
+    <body>
+      <div id="refreshapalooza">
+        <div id="refreshapalooza-settings">
+          <div id="num-display">
+            <label for="refreshapalooza-interval-text"><strong>REFRESHAPALOOZA</strong></label>
+            <p id="refreshapalooza-interval-text">10</p>
+          </div>
+    
+          <input type="range" min="1" max="60" value="10" id="refreshapalooza-interval" />
+    
+          <div class="refreshapalooza-unit-type">
+            <input type="radio" value="sec" id="sec" name="unit" checked >
+            <label for="sec">Seconds</label>
+            <input type="radio" value="min" id="min" name="unit" >
+            <label for="min">Minutes</label>
+          </div>
+        </div>
+
+        <div id="refreshapalooza-controller">
+          <label class="refreshapalooza-toggle">
+            <input type="checkbox" id="active"/> 
+            <span class="toggle"></span>
+          </label>
+          <label id="refreshapalooza-toggle-label" for="active">Nope</label>
+        </div>
+      </div>
+      <script src="popup.js"></script>
+    </body>
+  </html>

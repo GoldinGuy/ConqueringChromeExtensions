@@ -1,0 +1,149 @@
+/* General */
+#refreshapalooza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#num-display {
+  text-align: center;
+  font-size: 1.2em;
+  color: #4125dd;
+}
+
+#num-display p {
+  font-size: 1.5em;
+}
+
+#refreshapalooza-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  border: 1px solid #4125dd;
+  user-select: none;
+}
+
+#refreshapalooza-controller {
+  margin-top: 1em;
+}
+
+/* Unit Switch Button */
+
+.refreshapalooza-unit-type {
+  display: flex;
+  overflow: hidden;
+  margin: 1em 0 1em 0;
+}
+
+.refreshapalooza-unit-type input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+  border: 0;
+}
+
+.refreshapalooza-unit-type label {
+	background-color: #ffffff;
+	color: rgba(0, 0, 0, 0.6);
+  font-size: 1em;
+	text-align: center;
+	padding: 8px 16px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease-in-out;
+  
+}
+
+.refreshapalooza-unit-type input:checked + label {
+  background-color: #4125dd;
+  color: white;
+	box-shadow: none;
+}
+
+.refreshapalooza-unit-type label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.refreshapalooza-unit-type label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
+
+/* On/Off Switch */
+
+.refreshapalooza-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.refreshapalooza-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 35px;
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle {
+  background-color: #4125dd;
+}
+
+input:focus + .toggle {
+  box-shadow: 0 0 1px #4125dd;
+}
+
+input:checked + .toggle:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+#refreshapalooza-controller {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#refreshapalooza-toggle-label {
+  margin-left: 1em;
+  font-size: 1.5em;
+}
+
+/* Prevent interaction with settings while running */
+.disabled {
+  pointer-events: none;
+}
+
+.disabled input {
+  opacity: 50%;
+}
+
+.disabled .refreshapalooza-unit-type {
+  opacity: 50%;
+}

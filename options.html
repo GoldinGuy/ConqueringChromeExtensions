@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Refreshapalooza Settings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="styles.css" /> 
+    </head>
+    <body>
+        <section id="refreshapalooza-options"> 
+        <h1>Refreshapalooza Settings</h1>
+        <form id="interval-form" autocomplete="off">
+        <div id="interval-form-desc"> Refresh Interval <strong>(minutes:seconds)</strong>: </div> 
+        <br>
+        <div class="input-interval">
+        <input type="text" id="minutes" placeholder="05" maxlength="2" /> 
+        <div class="colon">:</div> 
+        <input type="text" id="seconds" placeholder="00" maxlength="2" />
+        </div>
+        </form>
+<br>
+    <h2 class="">Website Settings</h2>
+    <div class="tableContainer">
+        <table class="siteTable" id="per-site-table">
+            <tbody id="tbody">
+                <tr class="row">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="add-site">+</button>
+    <br> 
+    <br>
+     <button  id="submit" type="submit" form="refreshapaloozaForm" >Submit</button>
+    <!-- <input id="submit" type="submit" form="refreshapaloozaForm" /> -->
+    </section>  
+    </body> 
+</html>
