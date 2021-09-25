@@ -1,5 +1,6 @@
-chrome.browserAction.setBadgeText({ text: "NOPE" });
-chrome.browserAction.setBadgeBackgroundColor({ color: "#4125dd" });
+chrome.action.setBadgeText({ text: "NOPE" });
+chrome.action.setBadgeBackgroundColor({ color: "#4125dd" });
+
 let reloads_holder = {};
 
 const YEP = 'Yep';
@@ -16,13 +17,26 @@ chrome.storage.onChanged.addListener((whatChanged, area) => {
                 // Start reloading current tab
                 const reloadInterval = currentVal.unit === 'min' ? currentVal.input * 60 * 1000 : currentVal.input * 1000;
 
-                reloads_holder[currentKey] = setInterval(() => {
-                    // Refresh page
-                    chrome.tabs.reload(parseInt(currentKey));
-                }, reloadInterval);
+                reloads_holder[currentKey] = chrome.alarms.create({
+
+									delayInMinutes: reloadInterval / 60000,
+									periodInMinutes: reloadInterval / 60000,
+                });
+                
+                chrome.alarms.onAlarm.addListener((alarm) => {
+                    console.log('triggered')
+					chrome.tabs.reload(parseInt(currentKey));
+			    });
+
+                
+                // reloads_holder[currentKey] = setInterval(() => {
+                //     // Refresh page
+                //     chrome.tabs.reload(parseInt(currentKey));
+                // }, reloadInterval);
             } else {
                 // Stop reloading
-                clearInterval(reloads_holder[currentKey]);
+                reloads_holder[currentKey].clear()
+                // clearInterval(reloads_holder[currentKey]);
             }
         }
     }
@@ -35,9 +49,9 @@ chrome.tabs.onActivated.addListener(() => {
 
         chrome.storage.local.get(tab.id.toString(), (items) => {
             if (items[tab.id] && items[tab.id].active) {
-                chrome.browserAction.setBadgeText({ text: YEP });
+                chrome.action.setBadgeText({ text: YEP });
             } else {
-                chrome.browserAction.setBadgeText({ text: NOPE });
+                chrome.action.setBadgeText({ text: NOPE });
             }
         });
       });

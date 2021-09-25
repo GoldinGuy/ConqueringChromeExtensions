@@ -60,7 +60,7 @@ active.onchange = function(event) {
 
     activeLabel.innerHTML = YEP;
     settingsContainer.classList.add('disabled');
-    chrome.browserAction.setBadgeText({text: YEP});
+    chrome.action.setBadgeText({ text: YEP });
 
   // Turn NOPE
   } else {
@@ -77,7 +77,7 @@ active.onchange = function(event) {
 
     activeLabel.innerHTML = NOPE;
     settingsContainer.classList.remove('disabled');
-    chrome.browserAction.setBadgeText({text: NOPE});
+    chrome.action.setBadgeText({ text: NOPE });
 
   }
 }
